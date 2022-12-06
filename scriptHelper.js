@@ -1,6 +1,23 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
+const form = document.querySelector("form");
+const pilotName = document.getElementById("pilotName");
+const copilotName = document.getElementById("copilotName");
+const fuelLevel = document.getElementById("fuelLevel");
+const cargoMass = document.getElementById("cargoMass");
+// const submitButton = document.getElementById("formSubmit");
+
+// const pilotStatus = document.getElementById("pilotStatus");
+// const copilotStatus = document.getElementById("copilotStatus");
+// const fuelStatus = document.getElementById("fuelStatus");
+// const cargoStatus = document.getElementById("cargoStatus");
+
+{/* <li id="pilotStatus" data-testid="pilotStatus">Pilot Ready</li>
+<li id="copilotStatus" data-testid="copilotStatus">Co-pilot Ready</li>
+<li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
+<li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li> */}
+
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
    /*
@@ -15,10 +32,17 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 <img src="">
    */
 }
-
 function validateInput(testInput) {
-   
-}
+    let numInput = Number(testInput);
+    if (testInput === ""){
+        return "Empty"
+    } else if (isNaN(numInput) === false){
+        return "Not a Number"
+    } else if (numInput) {
+        return "Is a Number"
+    }
+   }
+
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    
