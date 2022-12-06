@@ -1,7 +1,12 @@
 // Write your JavaScript code here!
 // const { formSubmission } = require("./scriptHelper");
+
+// const { myFetch } = require("./scriptHelper");
+
 // const { validateInput } = require("./scriptHelper");
 window.addEventListener("load", function() {
+
+    // console.log(myFetch());
 
     const form = document.querySelector('form');
     const list = document.getElementById('faultyItems');
