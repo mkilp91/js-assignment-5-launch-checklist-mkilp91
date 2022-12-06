@@ -1,11 +1,11 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-const form = document.querySelector("form");
-const pilotName = document.getElementById("pilotName");
-const copilotName = document.getElementById("copilotName");
-const fuelLevel = document.getElementById("fuelLevel");
-const cargoMass = document.getElementById("cargoMass");
+// const form = document.querySelector("form");
+// const pilotName = document.getElementById("pilotName");
+// const copilotName = document.getElementById("copilotName");
+// const fuelLevel = document.getElementById("fuelLevel");
+// const cargoMass = document.getElementById("cargoMass");
 // const submitButton = document.getElementById("formSubmit");
 
 // const pilotStatus = document.getElementById("pilotStatus");
@@ -38,14 +38,23 @@ function validateInput(testInput) {
         return "Empty"
     } else if (isNaN(numInput) === false){
         return "Not a Number"
-    } else if (numInput) {
+    } else if (isNan(numInput) === true) {
         return "Is a Number"
     }
    }
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+    const pilotStatus = document.getElementById("pilotStatus");
+    const copilotStatus = document.getElementById("copilotStatus");
+    const fuelStatus = document.getElementById("fuelStatus");
+    const cargoStatus = document.getElementById("cargoStatus");
+
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+        alert("All fields are required!");     
+    } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number"){
+        alert("Please enter valid values for each field!")
+    }
 }
 
 async function myFetch() {
