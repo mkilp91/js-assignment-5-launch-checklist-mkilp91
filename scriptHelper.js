@@ -56,16 +56,34 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("Please enter valid values for each field!")
     } else {
         list.style.visibility = "visible";
-        pilotStatus.innerHTML = `Go for ${pilot}!`;
-        copilotStatus.innerHTML = `Go for ${copilot}`;
+        pilotStatus.innerHTML = `Go for ${pilot}.`;
+        copilotStatus.innerHTML = `Go for ${copilot}.`;
         const launchStatus = document.getElementById("launchStatus");
         if (fuelLevel < 10000 && cargoLevel <= 10000){
             list.style.visibility = "visbile";
             fuelStatus.innerHTML = "Insufficient fuel!";
             launchStatus.innerHTML = "Shuttle not ready for launch";
             launchStatus.style.color = "red";
-            cargoStatus.innerHTML = "Cargo mass acceptable";
-        } 
+            cargoStatus.innerHTML = "Cargo mass acceptable.";
+        } else if (fuelLevel < 10000 && cargoLevel > 10000){
+            list.style.visibility = "visbile";
+            fuelStatus.innerHTML = "Insufficient fuel!";
+            launchStatus.innerHTML = "Shuttle not ready for launch";
+            launchStatus.style.color = "red";
+            cargoStatus.innerHTML = "Cargo exceeds maximum capacity!";
+        } else if (fuelLevel >= 10000 && cargoLevel > 10000){
+            list.style.visibility = "visbile";
+            fuelStatus.innerHTML = "Fuel level acceptable.";
+            launchStatus.innerHTML = "Shuttle not ready for launch";
+            launchStatus.style.color = "red";
+            cargoStatus.innerHTML = "Cargo exceeds maximum capacity!";
+        } else if (fuelLevel >= 10000 && cargoLevel <= 10000){
+            list.style.visibility = "visbile";
+            fuelStatus.innerHTML = "Fuel level acceptable.";
+            launchStatus.innerHTML = "Shuttle ready for launch";
+            launchStatus.style.color = "green";
+            cargoStatus.innerHTML = "Cargo mass acceptable.";
+        }
     }
 }
 
